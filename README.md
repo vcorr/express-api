@@ -3,7 +3,15 @@ This repository showcases an Express API that features a Swagger documentation a
 
 It uses [swagger-autogen](https://github.com/davibaltar/swagger-autogen) to generate a swagger.json. While minimal documentation is generated automatically, some details like response or payload types are not automatically picked up. However, another tool [typescript-json-schema](https://github.com/YousefED/typescript-json-schema) can be used to produce json definitions based on Typescript types
 
-For example to generate json type for the interface User run:
+For example this application has an interface "User"
+```
+export interface User {
+  id: number;
+  email: string;
+  password: string;
+}
+```
+To generate json type for the interface run:
 ```
 typescript-json-schema ./tsconfig.json User > swagger-schema/User.json
 ````
