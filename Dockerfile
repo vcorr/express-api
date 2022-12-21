@@ -1,11 +1,12 @@
 # Common build stage
 FROM node:14.14.0-alpine3.12 as common-build-stage
 
-COPY . ./app
-
 WORKDIR /app
 
+COPY .swcrc nodemon.json package.json package-lock.json tsconfig.json .prettierrc swagger.js swagger-output.json   /app/
+#COPY . .
 RUN npm install
+COPY ./src/ ./src/
 
 EXPOSE 3000
 
@@ -16,9 +17,3 @@ ENV NODE_ENV development
 
 CMD ["npm", "run", "dev"]
 
-# Production build stage
-FROM common-build-stage as production-build-stage
-
-ENV NODE_ENV production
-
-CMD ["npm", "run", "start"]

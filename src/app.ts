@@ -11,7 +11,7 @@ import { NODE_ENV, PORT, LOG_FORMAT, ORIGIN, CREDENTIALS } from '@config';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
-const swaggerFile = require('../swagger-output.json')
+const swaggerFile = require('../swagger-output.json');
 
 class App {
   public app: express.Application;
